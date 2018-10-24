@@ -9,8 +9,9 @@ class Album extends Component {
 
     this.state = {
       album,
-      currentSong: album.songs[0],
+      currentSong: false,
       isPlaying: false,
+      isMouseHover: null,
     };
     this.audioElement = document.createElement('audio');
     this.audioElement.src = album.songs[0].audioSrc;
@@ -43,6 +44,26 @@ class Album extends Component {
     }
   }
 
+  mouseEnter(index) {
+    this.setState({ isMouseHover: index });
+  }
+
+  mouseLeave() {
+    this.setState({ isMouseHover: false });
+  }
+
+  handleMouseHover(song, index) {
+    if (this.state.isMouseHover === index) {
+      return <span className="ion-md-play" />;
+    } else if (this.state.currentSong === song && this.state.isPlaying) {
+      return <span className="ion-md-pause" />;
+    } else if (this.state.currentSong === song && !this.state.isPlaying) {
+      return <span className="ion-md-play" />;
+    } else {
+      return index + 1;
+    }
+  }
+
   render() {
     return (
       <section className="album">
@@ -66,8 +87,14 @@ class Album extends Component {
           </colgroup>
           <tbody className="songInfo">
             {this.state.album.songs.map((song, index) => (
-              <tr className="song" key={index} onClick={() => this.handleSongClick(song)}>
-                <td>{[(index = index + 1)]}</td>
+              <tr
+                className="song"
+                key={index}
+                onClick={() => this.handleSongClick(song)}
+                onMouseEnter={() => this.mouseEnter(index)}
+                onMouseLeave={() => this.mouseLeave()}
+              >
+                <td>{this.handleMouseHover(song, index)}</td>
                 <td>{song.title}</td>
                 <td>{song.duration}</td>
               </tr>
