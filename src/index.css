@@ -1,4 +1,6 @@
 body {
+  background-color: #232621;
+
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -8,7 +10,60 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1,
+p {
+  color: #edf2f4;
+}
+
+.link {
+  color: #e00077;
+}
+
+.link:hover {
+  color: #edf2f4;
+}
+
+#logo-link {
+  margin: 1em;
+}
+
+#library-link {
+  color: #e00077;
+}
+
+#library-link:hover {
+  color: #edf2f4;
+}
+
+.title,
+h2 {
+  text-align: center;
+  color: #e00077;
+}
+
+.landing {
+  text-align: center;
+}
+
+#album-title,
+#release-info {
+  text-align: center;
+  color: #e00077;
+  margin-bottom: 1em;
+}
+
+#song-list {
+  color: #edf2f4;
+}
+
+#player-bar {
+  text-align: center;
+}
+
+#time-control {
+  color: #edf2f4;
+}
+
+#volume-control {
+  color: #edf2f4;
 }

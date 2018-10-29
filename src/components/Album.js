@@ -131,9 +131,11 @@ class Album extends Component {
       <section className="album">
         <section id="album-info">
           <img
+            style={{ height: 200, width: 200 }}
             id="album-cover-art"
             src={this.state.album.albumCover}
             alt={this.state.album.title}
+            className="img-thumbnail mx-auto d-block"
           />
           <div className="album-details">
             <h1 id="album-title">{this.state.album.title}</h1>
@@ -141,7 +143,12 @@ class Album extends Component {
             <div id="release-info">{this.state.album.releaseInfo}</div>
           </div>
         </section>
-        <table id="song-list">
+        <table className="table table-hover" id="song-list">
+          <tr>
+            <th>Track Number</th>
+            <th>Song</th>
+            <th>Time</th>
+          </tr>
           <colgroup>
             <col id="song-number-column" />
             <col id="song-title-column" />
